@@ -14,7 +14,7 @@ let package = Package(
         /// The modulemap/shim combo doesn't help, Xcode still can't find the headers... Is the target `.systemLibrary` only meant for importing C in *Swift* and not to other C targets? Having `CXXBoost` as only dependency for the Swift `BoostTest` target erors out because:
         /// 1. it can't find the headers
         /// 2. even with the unsafe include flag, it cannot use the headers because it reads them as C, not C++
-        /// This seems to confirm that `.systemLibrary` is not the right option here / only tries to expose C to Swift
+        /// This seems to confirm that `.systemLibrary` is not the right option here / only tries to expose C to Swift and not to expose system-installed headers to other C-family targets (which I thought it did as well).
         .systemLibrary(
             name: "CXXBoost",
             providers: [

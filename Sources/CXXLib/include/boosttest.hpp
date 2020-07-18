@@ -11,10 +11,10 @@
 #include <string>
 
 #include <boost/algorithm/string.hpp>
+
 namespace boosttest {
 
 std::string toUpper(std::string input);
-std::string fakeToUpper(std::string input);
 
 }
 

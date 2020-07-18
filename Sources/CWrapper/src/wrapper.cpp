@@ -15,7 +15,7 @@ void print_upper_c(const char* str) {
     std::string cppstr = boosttest::toUpper(std::string(str));
     const char * ret = cppstr.c_str();
     //return ret;
-    printf("Uppercased: %s\n", ret);
+    printf("%s -> %s\n", str, ret);
 }
 
 const char* to_upper_c(const char* str) {

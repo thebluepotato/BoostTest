@@ -22,13 +22,13 @@ let package = Package(
             name: "CXXLib",
             dependencies: ["CXXBoost"],
             exclude: ["include"] // will be fixed with PR-2814
-            /// This unsafe flag is required for Xcode to find the Boost headers
+            /// This unsafe flag is required for Xcode to find the Boost headers. `swift build` doesn't.
             //, cxxSettings: [.unsafeFlags(["-I", "/usr/local/include"])]
         ),
         .target(
             name: "CWrapper",
             dependencies: ["CXXLib"]
-            /// Because the `.cpp` wrapper includes `CXXLib`'s header, it needs to find Boost as well, so we have to duplicate that flag (it is not "imported" from the `CXXLib` target)
+            /// Because the `.cpp` wrapper includes `CXXLib`'s header, it needs to find Boost as well, so we have to duplicate that flag (it is not "imported" from the `CXXLib` target). `swift build` doesn't.
             //, cxxSettings: [.unsafeFlags(["-I", "/usr/local/include"])]
         ),
         .target(
